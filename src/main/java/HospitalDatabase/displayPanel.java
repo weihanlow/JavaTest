@@ -16,6 +16,7 @@ public class displayPanel extends JPanel{
 
         patientDetails = new JLabel();
         setDisplayText(patientDetails, patient.getFullName(), patient.getAge());
+        createPanel(patientDetails);
 
         patientMRI = new JLabel();
         setDisplayImage(patientMRI, patient.getMRI().getImageURL());
@@ -23,7 +24,7 @@ public class displayPanel extends JPanel{
 
         patientBP = new JLabel();
         setDisplayText(patientBP, patient.getBP().getSysPressure(), patient.getBP().getDiasPressure());
-
+        createPanel(patientBP);
     }
 
     private JLabel setDisplayImage(JLabel label, String url) {
@@ -51,5 +52,6 @@ public class displayPanel extends JPanel{
     private void createPanel(JLabel label) {
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(label, BorderLayout.CENTER);
+        add(panel);
     }
 }
